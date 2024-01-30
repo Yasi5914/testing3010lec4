@@ -71,12 +71,13 @@ std::vector<double> MatchVectors(std::vector<double> a, std::vector<double> b){
 
 // takes a vector of doubles and removes all elements evenly divisible by the passed in double
 std::vector<double> MultiplesFilter(std::vector<double> vect, double divides_by){
+	std::vector<double> vectans;
 	for(int i = 0;i<vect.size();i++){
-		if(vect[i]/divides_by == 0){
-			vect.erase(vect.begin()+i);
+		if(vect[i] / divides_by == 0){
+			vectans.push_back(vect[i]);
 		}
 	}
-	return vect;
+	return vectans;
 }
 
 // returns a vector with true for numbers greater than the second parameters and false for those less than or equal to
@@ -90,6 +91,7 @@ std::vector<bool> GreaterMask(std::vector<double> nums, double greater_than){
 			ans.push_back(0);
 		}
 	}
+	return ans;
 }
 
 // returns a vector with true for numbers less than the second parameters and false for those greater than or equal to
@@ -103,6 +105,7 @@ std::vector<bool> LessMask(std::vector<double> nums, double less_than){
 			ans.push_back(0);
 		}
 	}
+	return ans;
 }
 
 // returns a vector with true for numbers greater than the second parameters and false for those less than or equal to
